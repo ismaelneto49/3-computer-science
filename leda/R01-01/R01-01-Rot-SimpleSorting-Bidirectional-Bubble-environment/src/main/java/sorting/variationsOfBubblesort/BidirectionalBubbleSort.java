@@ -13,26 +13,18 @@ import util.Util;
 public class BidirectionalBubbleSort<T extends Comparable<T>> extends
         AbstractSorting<T> {
 
-    private boolean isOrdered = true;
+    private boolean isOrdered;
 
     private void bidirectionalBubbleSort(T[] array, int start, int end) {
         for (int i = start; i < end; i++) {
-            if (i % 2 == 0) {dragToStart(array, start, end);
+            this.isOrdered = true;
+            if (i % 2 == 0) {
+                dragToEnd(array, start, end);
             } else {
-               dragToEnd(array, start, end);
+                dragToStart(array, start, end);
             }
             if (this.isOrdered) {
                 break;
-            }
-        }
-    }
-
-    private void dragToStart(T[] array, int start, int end) {
-        for (int j = start; j < end; j++) {
-            boolean isCurrentGreaterThanNext = array[j].compareTo(array[j + 1]) > 0;
-            if (isCurrentGreaterThanNext) {
-                Util.swap(array, j, j + 1);
-                this.isOrdered = false;
             }
         }
     }
@@ -42,6 +34,16 @@ public class BidirectionalBubbleSort<T extends Comparable<T>> extends
             boolean isCurrentGreaterThanNext = array[j].compareTo(array[j + 1]) > 0;
             if (isCurrentGreaterThanNext) {
                 Util.swap(array, j, j + 1);
+                this.isOrdered = false;
+            }
+        }
+    }
+
+    private void dragToStart(T[] array, int start, int end) {
+        for (int j = end; j > start; j--) {
+            boolean isCurrentSmallerThanPrevious = array[j].compareTo(array[j - 1]) < 0;
+            if (isCurrentSmallerThanPrevious) {
+                Util.swap(array, j, j - 1);
                 this.isOrdered = false;
             }
         }

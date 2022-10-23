@@ -1,9 +1,7 @@
 package sorting.divideAndConquer;
 
 import sorting.AbstractSorting;
-
-import java.util.Arrays;
-import java.util.Random;
+import util.Util;
 
 /**
  * Quicksort is based on the divide-and-conquer paradigm. The algorithm chooses
@@ -16,10 +14,29 @@ import java.util.Random;
 public class QuickSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
     private void quickSort(T[] array, int start, int end) {
-        divide(array, start, end);
+        if (start < end) {
+            int pivot = partition(array, start, end);
+            quickSort(array, start, pivot - 1);
+            quickSort(array, pivot + 1, end);
+        }
     }
 
-    private void divide(T[] array, int start, int end) {
+    private int partition(T[] array, int start, int end) {
+        int range = end - start + 1;
+        int randomIndex = (int) (Math.random() * range) + start;
+        Util.swap(array, start, randomIndex);
+
+        T pivot = array[start];
+        int k = start;
+        for (int i = k + 1; i <= end; i++) {
+            boolean isElementSmallerThanPivot = array[i].compareTo(pivot) <= 0;
+            if (isElementSmallerThanPivot) {
+                k++;
+                Util.swap(array, k, i);
+            }
+        }
+        Util.swap(array, start, k);
+        return k;
     }
 
     @Override

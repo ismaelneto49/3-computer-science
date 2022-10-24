@@ -1,6 +1,7 @@
 package sorting.divideAndConquer.quicksort3;
 
 import sorting.AbstractSorting;
+import sorting.divideAndConquer.InsertionSort;
 import util.Util;
 
 /**
@@ -17,8 +18,9 @@ import util.Util;
  * 5. Aplicar o particionamento considerando o vetor menor, de A[left+1] até A[right-1].
  * 6. Aplicar o algoritmo na particao a esquerda e na particao a direita do pivô.
  */
-public class QuickSortMedianOfThree<T extends Comparable<T>> extends
-        AbstractSorting<T> {
+public class QuickSortMedianOfThree<T extends Comparable<T>> extends AbstractSorting<T> {
+
+    private final InsertionSort insertionSort = new InsertionSort();
 
     private void quickSort3(T[] array, int start, int end) {
         if (start < end) {
@@ -29,8 +31,7 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> extends
     }
 
     private int partition(T[] array, int start, int end) {
-        int pivotIndex = median(array, start, end);
-        Util.swap(array, start, pivotIndex);
+        choosePivot(array, start, end);
 
         T pivot = array[start];
         int k = start;
@@ -45,12 +46,17 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> extends
         return k;
     }
 
+    private void choosePivot(T[] array, int start, int end) {
+        int pivotIndex = median(array, start, end);
+        Util.swap(array, start, pivotIndex);
+    }
+
     private int median(T[] array, int start, int end) {
         int mid = (start + end) / 2;
         T[] values = (T[]) new Comparable[]{array[start], array[mid], array[end]};
-        insertionSort(values, 0, 2);
+        insertionSort.sort(values, 0, 2);
         int index = indexOf(array, values[1]);
-        return index >= 0 ? index : 0;
+        return Math.max(index, 0);
     }
 
     private int indexOf(T[] array, T value) {
@@ -61,17 +67,6 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> extends
             }
         }
         return -1;
-    }
-
-    private void insertionSort(T[] array, int start, int end) {
-        for (int i = start + 1; i < end + 1; i++) {
-            for (int j = i; j > start; j--) {
-                boolean isCurrentSmallerThanPrevious = array[j].compareTo(array[j - 1]) < 0;
-                if (isCurrentSmallerThanPrevious) {
-                    Util.swap(array, j - 1, j);
-                }
-            }
-        }
     }
 
     @Override

@@ -22,9 +22,7 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSorting<T> {
     }
 
     private int partition(T[] array, int start, int end) {
-        int range = end - start + 1;
-        int randomIndex = (int) (Math.random() * range) + start;
-        Util.swap(array, start, randomIndex);
+        choosePivot(array, start, end);
 
         T pivot = array[start];
         int k = start;
@@ -37,6 +35,12 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSorting<T> {
         }
         Util.swap(array, start, k);
         return k;
+    }
+
+    private void choosePivot(T[] array, int start, int end) {
+        int range = end - start + 1;
+        int randomIndex = (int) (Math.random() * range) + start;
+        Util.swap(array, start, randomIndex);
     }
 
     @Override

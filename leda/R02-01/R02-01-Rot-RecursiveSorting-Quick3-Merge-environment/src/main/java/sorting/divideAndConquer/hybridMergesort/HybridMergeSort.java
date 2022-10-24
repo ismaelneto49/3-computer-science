@@ -1,6 +1,7 @@
 package sorting.divideAndConquer.hybridMergesort;
 
 import sorting.AbstractSorting;
+import sorting.divideAndConquer.InsertionSort;
 import util.Util;
 
 import java.util.Arrays;
@@ -31,28 +32,19 @@ public class HybridMergeSort<T extends Comparable<T>> extends AbstractSorting<T>
     protected static int MERGESORT_APPLICATIONS = 0;
     protected static int INSERTIONSORT_APPLICATIONS = 0;
 
+    private final InsertionSort insertionSort = new InsertionSort();
+
     private void hybridMergeSort(T[] array, int start, int end) {
         int mid = (start + end) / 2;
 
         if (end - start <= SIZE_LIMIT) {
-            insertionSort(array, start, end);
+            insertionSort.sort(array, start, end);
+            INSERTIONSORT_APPLICATIONS += 1;
         } else {
             hybridMergeSort(array, start, mid);
             hybridMergeSort(array, mid + 1, end);
             merge(array, start, end);
         }
-    }
-
-    private void insertionSort(T[] array, int start, int end) {
-        for (int i = start + 1; i < end + 1; i++) {
-            for (int j = i; j > start; j--) {
-                boolean isCurrentSmallerThanPrevious = array[j].compareTo(array[j - 1]) < 0;
-                if (isCurrentSmallerThanPrevious) {
-                    Util.swap(array, j - 1, j);
-                }
-            }
-        }
-        INSERTIONSORT_APPLICATIONS += 1;
     }
 
     private void merge(T[] array, int start, int end) {

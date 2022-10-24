@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sorting.AbstractSorting;
+import sorting.divideAndConquer.InsertionSort;
 import sorting.divideAndConquer.MergeSort;
 import sorting.divideAndConquer.QuickSort;
 import sorting.divideAndConquer.hybridMergesort.HybridMergeSort;

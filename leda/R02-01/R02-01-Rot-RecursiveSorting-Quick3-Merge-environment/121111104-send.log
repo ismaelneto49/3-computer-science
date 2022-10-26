@@ -17,3 +17,33 @@
   <level>FINE</level>
   <message>File 121111104-ISMAEL RAIMUNDO DA SILVA NETO.zip was received. It was sent by ISMAEL RAIMUNDO DA SILVA NETO from IP 192.168.0.110 at 23-10-2022 11*39*41</message>
 </record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-10-24T11:42:19.168-0300</date>
+  <logger>ISMAEL RAIMUNDO DA SILVA NETO</logger>
+  <level>FINE</level>
+  <message>File 121111104-ISMAEL RAIMUNDO DA SILVA NETO.zip was received. It was sent by ISMAEL RAIMUNDO DA SILVA NETO from IP 150.165.75.97 at 24-10-2022 11*42*19</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-10-26T15:47:23.062-0300</date>
+  <logger>ISMAEL RAIMUNDO DA SILVA NETO</logger>
+  <level>FINE</level>
+  <message>File 121111104-ISMAEL RAIMUNDO DA SILVA NETO.zip was received. It was sent by ISMAEL RAIMUNDO DA SILVA NETO from IP 192.168.0.110 at 26-10-2022 15*47*22</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-10-26T15:57:50.797-0300</date>
+  <logger>ISMAEL RAIMUNDO DA SILVA NETO</logger>
+  <level>FINE</level>
+  <message>File 121111104-ISMAEL RAIMUNDO DA SILVA NETO.zip was received. It was sent by ISMAEL RAIMUNDO DA SILVA NETO from IP 192.168.0.110 at 26-10-2022 15*57*50</message>
+</record>

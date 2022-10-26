@@ -39,11 +39,11 @@ public class CountingSort {
         }
     }
 
-    private static void sort(Integer[] array, int start, int end, int[] c) {
+    private static void sort(Integer[] array, int start, int end, int[] frequencyArray) {
         int[] finalArray = new int[end - start + 1];
-        for (int i = end; i >= start ; i--) {
-            finalArray[c[array[i] - 1] - 1] = array[i];
-            c[array[i] - 1] -= 1;
+        for (int i = end; i >= start; i--) {
+            finalArray[frequencyArray[array[i] - 1] - 1] = array[i];
+            frequencyArray[array[i] - 1] -= 1;
         }
         for (int i = start; i <= end; i++) {
             array[i] = finalArray[i - start];

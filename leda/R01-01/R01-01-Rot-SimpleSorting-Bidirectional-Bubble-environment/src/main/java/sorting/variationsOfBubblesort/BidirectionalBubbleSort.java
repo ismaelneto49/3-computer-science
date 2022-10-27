@@ -16,6 +16,9 @@ public class BidirectionalBubbleSort<T extends Comparable<T>> extends
     private boolean isOrdered;
 
     private void bidirectionalBubbleSort(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         for (int i = start; i < end; i++) {
             this.isOrdered = true;
             if (i % 2 == 0) {

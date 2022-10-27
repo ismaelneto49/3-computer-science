@@ -13,6 +13,9 @@ import util.Util;
 public class BubbleSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
     private void bubbleSort(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         for (int i = start; i < end; i++) {
             boolean isOrdered = true;
             for (int j = start; j < end - i; j++) {

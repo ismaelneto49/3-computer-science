@@ -15,7 +15,7 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
         if(array.length == 0 || array.length == 1) {
             return;
         }
-        for (int i = start + 1; i < end + 1; i++) {
+        for (int i = start + 1; i <= end; i++) {
             for (int j = i; j > start; j--) {
                 boolean isCurrentSmallerThanPrevious = array[j].compareTo(array[j - 1]) < 0;
                 if (isCurrentSmallerThanPrevious) {

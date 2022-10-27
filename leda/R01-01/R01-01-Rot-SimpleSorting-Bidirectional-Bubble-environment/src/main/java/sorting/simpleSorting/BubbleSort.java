@@ -16,7 +16,7 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSorting<T> {
         if(array.length == 0 || array.length == 1) {
             return;
         }
-        for (int i = start; i < end; i++) {
+        for (int i = start; i <= end; i++) {
             boolean isOrdered = true;
             for (int j = start; j < end - i; j++) {
                 boolean isCurrentGreaterThanNext = array[j].compareTo(array[j + 1]) > 0;

@@ -14,7 +14,7 @@ public class SelectionSort<T extends Comparable<T>> extends AbstractSorting<T> {
         if(array.length == 0 || array.length == 1) {
             return;
         }
-        for (int i = start; i < end; i++) {
+        for (int i = start; i <= end; i++) {
             int indexSmallest = findIndexSmallest(array, i, end);
 
             boolean smallestIsInRightPosition = start == indexSmallest;

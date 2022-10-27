@@ -13,6 +13,9 @@ import java.util.Arrays;
 public class MergeSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
     private void mergeSort(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         int mid = (start + end) / 2;
         if (start < end) {
             mergeSort(array, start, mid);

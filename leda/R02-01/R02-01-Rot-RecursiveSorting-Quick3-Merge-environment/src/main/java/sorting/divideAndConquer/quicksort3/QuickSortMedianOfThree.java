@@ -20,6 +20,9 @@ import util.Util;
 public class QuickSortMedianOfThree<T extends Comparable<T>> extends AbstractSorting<T> {
 
     private void quickSort3(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         if (start < end) {
             int pivot = partition(array, start, end);
             quickSort3(array, start, pivot - 1);

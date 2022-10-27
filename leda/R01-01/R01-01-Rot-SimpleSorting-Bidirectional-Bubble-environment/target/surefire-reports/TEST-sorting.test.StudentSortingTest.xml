@@ -57,9 +57,9 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="sorting.test.StudentSortingTest" name="testSort01" time="0.012"/>
+  <testcase classname="sorting.test.StudentSortingTest" name="testSort01" time="0.011"/>
   <testcase classname="sorting.test.StudentSortingTest" name="testSort02" time="0"/>
   <testcase classname="sorting.test.StudentSortingTest" name="testSort03" time="0"/>
-  <testcase classname="sorting.test.StudentSortingTest" name="testSort04" time="0.005"/>
-  <testcase classname="sorting.test.StudentSortingTest" name="testSort05" time="0"/>
+  <testcase classname="sorting.test.StudentSortingTest" name="testSort04" time="0"/>
+  <testcase classname="sorting.test.StudentSortingTest" name="testSort05" time="0.006"/>
 </testsuite>

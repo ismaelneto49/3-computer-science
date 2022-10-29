@@ -27,11 +27,13 @@ public class HybridMergeSort<T extends Comparable<T>> extends AbstractSorting<T>
      * algorithm will be used instead of the mergesort.
      */
     public static final int SIZE_LIMIT = 4;
-
     protected static int MERGESORT_APPLICATIONS = 0;
     protected static int INSERTIONSORT_APPLICATIONS = 0;
 
     private void hybridMergeSort(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         int mid = (start + end) / 2;
 
         if (end - start <= SIZE_LIMIT) {

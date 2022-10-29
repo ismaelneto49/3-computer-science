@@ -7,6 +7,9 @@ public class RecursiveSelectionSort<T extends Comparable<T>> extends
         AbstractSorting<T> {
 
     public void selectionSort(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         if (start < end) {
             drag(array, start, end);
             selectionSort(array, ++start, end);

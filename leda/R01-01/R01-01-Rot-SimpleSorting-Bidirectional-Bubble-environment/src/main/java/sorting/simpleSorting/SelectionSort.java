@@ -11,7 +11,10 @@ import util.Util;
 public class SelectionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
     private void selectionSort(T[] array, int start, int end) {
-        for (int i = start; i < end; i++) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
+        for (int i = start; i <= end; i++) {
             int indexSmallest = findIndexSmallest(array, i, end);
 
             boolean smallestIsInRightPosition = start == indexSmallest;

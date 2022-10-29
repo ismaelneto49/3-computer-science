@@ -14,6 +14,9 @@ import util.Util;
 public class QuickSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
     private void quickSort(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         if (start < end) {
             int pivot = partition(array, start, end);
             quickSort(array, start, pivot - 1);

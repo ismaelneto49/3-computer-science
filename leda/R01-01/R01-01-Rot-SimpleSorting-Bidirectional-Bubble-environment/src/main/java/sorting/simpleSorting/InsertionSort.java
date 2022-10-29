@@ -12,7 +12,10 @@ import util.Util;
 public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
     private void insertionSort(T[] array, int start, int end) {
-        for (int i = start + 1; i < end + 1; i++) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
+        for (int i = start + 1; i <= end; i++) {
             for (int j = i; j > start; j--) {
                 boolean isCurrentSmallerThanPrevious = array[j].compareTo(array[j - 1]) < 0;
                 if (isCurrentSmallerThanPrevious) {

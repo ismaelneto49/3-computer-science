@@ -9,6 +9,9 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends
     private boolean isOrdered = false;
 
     private void recursiveBubbleSort(T[] array, int start, int end) {
+        if(array.length == 0 || array.length == 1) {
+            return;
+        }
         if (isOrdered) {
             return;
         }

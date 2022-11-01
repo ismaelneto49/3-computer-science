@@ -1,24 +1,30 @@
-package dataStructures.Linked;
+package dataStructures.main.Queue;
 
-import dataStructures.List;
+import dataStructures.main.List;
 
-public class Linked<T> implements List<T> {
+public class Queue<T> implements List<T> {
 
-    int size;
+    private T head;
+    private T tail;
+    private int size;
 
     @Override
     public void add(T element) {
+        return;
+    }
+
+    @Override
+    public void remove(int index) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void remove(T element) {
         // TODO Auto-generated method stub
-        
+
     }
 
-    @Override
     public T get() {
         // TODO Auto-generated method stub
         return null;
@@ -28,6 +34,11 @@ public class Linked<T> implements List<T> {
     public T get(int index) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void set(int index, T element) {
+        // TODO Auto-generated method stub
     }
 
     @Override
@@ -46,6 +57,6 @@ public class Linked<T> implements List<T> {
     public boolean isEmpty() {
         // TODO Auto-generated method stub
         return false;
-    } 
-    
+    }
+
 }

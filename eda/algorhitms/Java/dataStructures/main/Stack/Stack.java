@@ -1,25 +1,30 @@
-package dataStructures.Queue;
+package dataStructures.main.Stack;
 
-import dataStructures.List;
+import dataStructures.main.List;
 
-public class Queue<T> implements List<T> {
+public class Stack<T> implements List<T> {
 
-    T head;
-    T tail;
-    int size;
-    
+    private T top;
+    private T size;
+
     @Override
     public void add(T element) {
-        return;
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void remove(int index) {
+        // TODO Auto-generated method stub
+
     }
 
     @Override
     public void remove(T element) {
         // TODO Auto-generated method stub
-        
+
     }
 
-    @Override
     public T get() {
         // TODO Auto-generated method stub
         return null;
@@ -29,6 +34,11 @@ public class Queue<T> implements List<T> {
     public T get(int index) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void set(int index, T element) {
+        // TODO Auto-generated method stub
     }
 
     @Override
@@ -48,5 +58,6 @@ public class Queue<T> implements List<T> {
         // TODO Auto-generated method stub
         return false;
     }
-    
+
+
 }

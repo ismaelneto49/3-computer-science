@@ -9,7 +9,7 @@ package orderStatistic;
  * A 3a estatistica de ordem eh 6, a 6a estatistica de ordem eh 12.
  * 
  * Note que, para selecionar os k maiores elementos, pode-se pegar todas as 
- * estatisticas de ordem maiores que k. 
+ * estatisticas de ordem maiores que n-k. 
  * 
  * Requisitos do algoritmo:
  * - DEVE ser in-place. Porem, voce pode modificar o array original.

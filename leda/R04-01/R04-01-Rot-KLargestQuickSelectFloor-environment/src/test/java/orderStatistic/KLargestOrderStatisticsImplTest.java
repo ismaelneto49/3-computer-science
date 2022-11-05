@@ -12,8 +12,7 @@ public class KLargestOrderStatisticsImplTest {
     private Integer[] evenSizeArray;
     private Integer[] oddSizeArray;
     private Integer[] emptyArray = {};
-    private Integer[] duplicatesArray;
-    private Integer[] equalValuesArray;
+    private Integer[] testArray = new Integer[] { 5, 3, 6, 2, 8 };
     private int k = 5;
 
     private KLargest<Integer> kLargest;
@@ -22,8 +21,6 @@ public class KLargestOrderStatisticsImplTest {
     void initialize() {
         fillEvenSizeArray(new Integer[]{30, 28, 7, 29, 11, 26, 4, 22, 23, 31});
         fillOddSizeArray(new Integer[]{6, 41, 32, 7, 26, 4, 37, 49, 11, 18, 36});
-        fillDuplicatesArray(new Integer[]{4, 9, 3, 4, 0, 5, 1, 4});
-        fillEqualValuesArray(new Integer[]{6, 6, 6, 6, 6, 6});
 
         kLargest = new KLargestOrderStatisticsImpl<>();
     }
@@ -34,14 +31,6 @@ public class KLargestOrderStatisticsImplTest {
 
     public void fillOddSizeArray(Integer[] arrayPadrao) {
         this.oddSizeArray = Arrays.copyOf(arrayPadrao, arrayPadrao.length);
-    }
-
-    public void fillDuplicatesArray(Integer[] arrayPadrao) {
-        this.duplicatesArray = Arrays.copyOf(arrayPadrao, arrayPadrao.length);
-    }
-
-    public void fillEqualValuesArray(Integer[] arrayPadrao) {
-        this.equalValuesArray = Arrays.copyOf(arrayPadrao, arrayPadrao.length);
     }
 
     @Test
@@ -68,26 +57,6 @@ public class KLargestOrderStatisticsImplTest {
     void testEmptyArray() {
         Comparable[] result = kLargest.getKLargest(emptyArray, k);
         Integer[] expected = {};
-        assertArrayEquals(expected, result);
-    }
-
-    @Test
-    void testDuplicatesArray() {
-        Comparable[] result = kLargest.getKLargest(duplicatesArray, k);
-        Arrays.sort(duplicatesArray);
-        int start = duplicatesArray.length - k;
-        int end = duplicatesArray.length;
-        Integer[] expected = Arrays.copyOfRange(duplicatesArray, start, end);
-        assertArrayEquals(expected, result);
-    }
-
-    @Test
-    void testEqualValuesArray() {
-        Comparable[] result = kLargest.getKLargest(equalValuesArray, k);
-        Arrays.sort(equalValuesArray);
-        int start = equalValuesArray.length - k;
-        int end = equalValuesArray.length;
-        Integer[] expected = Arrays.copyOfRange(equalValuesArray, start, end);
         assertArrayEquals(expected, result);
     }
 

@@ -54,6 +54,10 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
      * @return
      */
     public T orderStatistics(T[] array, int k) {
+        boolean orderStatisticExist = k >= 0 && k <= array.length;
+        if (!orderStatisticExist) {
+            return null;
+        }
         insertionSort(array, 0, array.length - 1);
         return array[k];
     }

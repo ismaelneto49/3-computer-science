@@ -1,0 +1,14 @@
+    public int binarySearch(Integer[] array, int start, int end, Integer element) {
+        if (start <= end) {
+            int mid = (start + end) / 2;
+            boolean isCurrentSmallerThanTarget = array[mid].compareTo(element) < 0;
+            boolean isCurrentGreaterThanTarget = array[mid].compareTo(element) > 0;
+            if (isCurrentSmallerThanTarget) {
+                mid = binarySearch(array, mid + 1, end, element);
+            } else if (isCurrentGreaterThanTarget) {
+                mid = binarySearch(array, start, mid - 1, element);
+            }
+            return mid;
+        }
+        return -1;
+    }

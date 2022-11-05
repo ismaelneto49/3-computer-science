@@ -7,8 +7,8 @@ public class FloorBinarySearchImpl implements Floor {
     @Override
     public Integer floor(Integer[] array, Integer x) {
         quickSort(array, 0, array.length - 1);
-        Integer index = searchFor(array, x - 1);
-        return array[index];
+        int index = binarySearch(array, 0, array.length - 1, x);
+        return index != -1 ? array[index] : null;
     }
 
     private void quickSort(Integer[] array, int start, int end) {
@@ -44,32 +44,29 @@ public class FloorBinarySearchImpl implements Floor {
         Util.swap(array, start, randomIndex);
     }
 
-    private Integer searchFor(Integer[] array, Integer element) {
-        if (element - 1 >= array[0]) {
-            int index = binarySearch(array, 0, array.length - 1, element);
-            if (index == -1) {
-                searchFor(array, element - 1);
-            }
+    public int binarySearch(Integer[] array, int start, int end, Integer element) {
+        if (start > end) {
+            return -1;
         }
-        return null;
-    }
+        boolean isElementSmallerThanArraySmallest = element.compareTo(array[0]) < 0;
+        if (isElementSmallerThanArraySmallest) {
+            return -1;
+        }
+        boolean isElementGreaterThanBiggestElement = element.compareTo(array[array.length - 1]) >= 0;
+        if (isElementGreaterThanBiggestElement) {
+            return array.length - 1;
+        }
 
-    private int binarySearch(Integer[] array, int start, int end, Integer element) {
-        if (start <= end) {
-            int mid = (start + end) / 2;
-            boolean foundElement = array[mid].compareTo(element) == 0;
-            if (foundElement) {
-                return mid;
-            }
-            boolean isCurrentSmallerThanTarget = array[mid].compareTo(element) < 0;
-            if (isCurrentSmallerThanTarget) {
-                binarySearch(array, start, mid - 1, element);
-            }
-            boolean isCurrentGreaterThanTarget = array[mid].compareTo(element) > 0;
-            if (isCurrentGreaterThanTarget) {
-                binarySearch(array, mid + 1, end, element);
-            }
+        int mid = (start + end) / 2;
+        boolean foundElement = array[mid].compareTo(element) <= 0 && array[mid + 1].compareTo(element) > 0;
+        if (foundElement) {
+            return mid;
         }
-        return -1;
+        boolean currentIsGreaterThanElement = array[mid].compareTo(element) > 0;
+        if (currentIsGreaterThanElement) {
+            return binarySearch(array, start, mid - 1, element);
+        } else {
+            return binarySearch(array, mid + 1, end, element);
+        }
     }
 }

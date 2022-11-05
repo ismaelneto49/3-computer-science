@@ -67,43 +67,9 @@ public class StudentSortingTest {
         if (array.length > 0) {
             copy1 = Arrays.copyOf(array, array.length);
         }
-        System.out.println(Arrays.toString(array));
         implementation.sort(array);
         Arrays.sort(copy1);
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(copy1));
         Assert.assertArrayEquals(copy1, array);
-    }
-
-    public void genericDefinedIndexesTest(Integer[] array, int start, int end) {
-        Integer[] copy1 = {};
-        Integer[] copy2 = {};
-        Integer[] copy3 = {};
-        if (array.length > 0) {
-            copy1 = Arrays.copyOf(array, start);
-            copy2 = Arrays.copyOfRange(array, start, end + 1);
-            copy3 = Arrays.copyOfRange(array, end + 1, array.length);
-        }
-        Arrays.sort(copy2);
-        Integer[] copy = new Integer[copy1.length + copy2.length + copy3.length];
-        int k = 0;
-        for (int i = 0; i < copy1.length; i++) {
-            copy[k] = copy1[i];
-            k++;
-        }
-        for (int i = 0; i < copy2.length; i++) {
-            copy[k] = copy2[i];
-            k++;
-        }
-        for (int i = 0; i < copy3.length; i++) {
-            copy[k] = copy3[i];
-            k++;
-        }
-        System.out.println(Arrays.toString(array));
-        implementation.sort(array, start, end);
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(copy));
-        Assert.assertArrayEquals(copy, array);
     }
 
     @Test
@@ -130,18 +96,6 @@ public class StudentSortingTest {
     public void testSort05() {
         genericTest(vetorValoresRepetidos);
     }
-
-    @Test
-    public void testSort06() {
-        genericDefinedIndexesTest(vetorTamImpar, 2, 5);
-    }
-
-    @Test
-    public void testSort07() {
-        Integer[] vetorNegativos = new Integer[]{-14, 8, -3, 17, -20, 19, -9, -11, 7, -2};
-        genericTest(vetorNegativos);
-    }
-
 
     // MÉTODOS QUE OS ALUNOS PODEM CRIAR
     /**

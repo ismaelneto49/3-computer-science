@@ -33,7 +33,7 @@ public class StackImpl<T> implements Stack<T> {
 	public void push(T element) throws StackOverflowException {
 		if (element != null) {
 			if (isFull()) {
-				throw new StackOverflowException("Stack is full");
+				throw new StackOverflowException();
 			}
 			this.array[++this.top] = element;
 		}
@@ -42,7 +42,7 @@ public class StackImpl<T> implements Stack<T> {
 	@Override
 	public T pop() throws StackUnderflowException {
 		if (isEmpty()) {
-			throw new StackUnderflowException("Stack is empty");
+			throw new StackUnderflowException();
 		}
 		return array[this.top--];
 	}

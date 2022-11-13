@@ -21,7 +21,7 @@ public class StackImpl<T> implements Stack<T> {
 
 	@Override
 	public boolean isEmpty() {
-		return this.top = -1;
+		return this.top == -1;
 	}
 
 	@Override

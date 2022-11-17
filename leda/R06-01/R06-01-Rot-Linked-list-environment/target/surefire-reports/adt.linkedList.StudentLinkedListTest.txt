@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: adt.linkedList.StudentLinkedListTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 2, Errors: 2, Skipped: 0, Time elapsed: 0.015 sec <<< FAILURE!
-testToArray(adt.linkedList.StudentLinkedListTest)  Time elapsed: 0 sec  <<< FAILURE!
+Tests run: 6, Failures: 2, Errors: 2, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+testToArray(adt.linkedList.StudentLinkedListTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 arrays first differed at element [0]; expected:<3> but was:<null>
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
@@ -52,7 +52,7 @@ Caused by: java.lang.AssertionError: expected:<3> but was:<null>
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)
 	... 38 more
 
-testIsEmpty(adt.linkedList.StudentLinkedListTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+testIsEmpty(adt.linkedList.StudentLinkedListTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)

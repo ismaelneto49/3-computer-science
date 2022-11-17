@@ -57,7 +57,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="adt.linkedList.StudentLinkedListTest" name="testToArray" time="0">
+  <testcase classname="adt.linkedList.StudentLinkedListTest" name="testToArray" time="0.001">
     <failure message="arrays first differed at element [0]; expected:&lt;3&gt; but was:&lt;null&gt;" type="arrays first differed at element [0]; expected">arrays first differed at element [0]; expected:&lt;3&gt; but was:&lt;null&gt;
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
@@ -110,7 +110,7 @@ Caused by: java.lang.AssertionError: expected:&lt;3&gt; but was:&lt;null&gt;
   </testcase>
   <testcase classname="adt.linkedList.StudentLinkedListTest" name="testSize" time="0"/>
   <testcase classname="adt.linkedList.StudentLinkedListTest" name="testInsert" time="0"/>
-  <testcase classname="adt.linkedList.StudentLinkedListTest" name="testIsEmpty" time="0.001">
+  <testcase classname="adt.linkedList.StudentLinkedListTest" name="testIsEmpty" time="0">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)

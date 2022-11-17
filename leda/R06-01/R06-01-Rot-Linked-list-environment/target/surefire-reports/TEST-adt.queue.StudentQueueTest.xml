@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="adt.queue.StudentQueueTest" time="0.028" errors="7" skipped="0">
+<testsuite tests="7" failures="0" name="adt.queue.StudentQueueTest" time="0.025" errors="7" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.4+8-Ubuntu-120.04"/>
@@ -57,7 +57,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="adt.queue.StudentQueueTest" name="testEnqueue" time="0.017">
+  <testcase classname="adt.queue.StudentQueueTest" name="testEnqueue" time="0.022">
     <error message="Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -95,7 +95,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.queue.StudentQueueTest" name="testHead" time="0.001">
+  <testcase classname="adt.queue.StudentQueueTest" name="testHead" time="0">
     <error message="Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -171,7 +171,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.queue.StudentQueueTest" name="testDequeue" time="0.001">
+  <testcase classname="adt.queue.StudentQueueTest" name="testDequeue" time="0">
     <error message="Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -209,7 +209,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.queue.StudentQueueTest" name="testIsFull" time="0.003">
+  <testcase classname="adt.queue.StudentQueueTest" name="testIsFull" time="0.001">
     <error message="Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -247,7 +247,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.queue.StudentQueueTest" name="testIsEmpty" time="0.006">
+  <testcase classname="adt.queue.StudentQueueTest" name="testIsEmpty" time="0.001">
     <error message="Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -285,7 +285,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.queue.StudentQueueTest" name="testEnqueueComErro" time="0">
+  <testcase classname="adt.queue.StudentQueueTest" name="testEnqueueComErro" time="0.001">
     <error message="Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.queue.Queue.enqueue(Object)&quot; because &quot;this.queue1&quot; is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

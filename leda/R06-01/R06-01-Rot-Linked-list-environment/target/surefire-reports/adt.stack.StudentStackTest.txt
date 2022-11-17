@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: adt.stack.StudentStackTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.023 sec <<< FAILURE!
-testPop(adt.stack.StudentStackTest)  Time elapsed: 0.001 sec  <<< ERROR!
+Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+testPop(adt.stack.StudentStackTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" because "this.stack1" is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -76,7 +76,7 @@ java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" bec
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testPush(adt.stack.StudentStackTest)  Time elapsed: 0.005 sec  <<< ERROR!
+testPush(adt.stack.StudentStackTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" because "this.stack1" is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -113,7 +113,7 @@ java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" bec
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testPushComErro(adt.stack.StudentStackTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testPushComErro(adt.stack.StudentStackTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" because "this.stack1" is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -150,7 +150,7 @@ java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" bec
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testPopComErro(adt.stack.StudentStackTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testPopComErro(adt.stack.StudentStackTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" because "this.stack1" is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -187,7 +187,7 @@ java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" bec
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testIsFull(adt.stack.StudentStackTest)  Time elapsed: 0.005 sec  <<< ERROR!
+testIsFull(adt.stack.StudentStackTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" because "this.stack1" is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -224,7 +224,7 @@ java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" bec
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testIsEmpty(adt.stack.StudentStackTest)  Time elapsed: 0.008 sec  <<< ERROR!
+testIsEmpty(adt.stack.StudentStackTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.stack.Stack.push(Object)" because "this.stack1" is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

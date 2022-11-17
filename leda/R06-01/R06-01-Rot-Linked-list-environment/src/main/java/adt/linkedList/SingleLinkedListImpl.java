@@ -10,7 +10,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 
 	@Override
 	public boolean isEmpty() {
-		return this.head == null;
+		return this.head.next == null;
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 		if (this.isEmpty()) {
 			return null;
 		}
-		SingleLinkedListNode<T> temp = this.head;
+		SingleLinkedListNode<T> temp = this.head.next;
 		while(temp.next != null) {
 			if (temp.data.equals(element)) {
 				return temp.data;
@@ -57,6 +57,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 		while(temp.next != null) {
 			if (temp.next.data.equals(element)) {
 				temp.next = temp.next.next;
+				break;
 			}
 			temp = temp.next;
 		}
@@ -68,7 +69,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 		SingleLinkedListNode<T> temp = this.head;
 		int count = 0;
 		while(temp.next != null) {
-			array[count++] = (T) temp.data;
+			array[count++] = temp.next.data;
 			temp = temp.next;
 		}
 		return array;

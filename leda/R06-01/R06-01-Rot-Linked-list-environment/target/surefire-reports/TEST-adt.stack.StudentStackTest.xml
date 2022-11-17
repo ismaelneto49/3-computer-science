@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="adt.stack.StudentStackTest" time="0.021" errors="7" skipped="0">
+<testsuite tests="7" failures="0" name="adt.stack.StudentStackTest" time="0.002" errors="7" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.4+8-Ubuntu-120.04"/>
@@ -57,7 +57,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="adt.stack.StudentStackTest" name="testPop" time="0.001">
+  <testcase classname="adt.stack.StudentStackTest" name="testPop" time="0">
     <error message="Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -133,7 +133,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.stack.StudentStackTest" name="testPush" time="0.005">
+  <testcase classname="adt.stack.StudentStackTest" name="testPush" time="0.001">
     <error message="Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -171,7 +171,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.stack.StudentStackTest" name="testPushComErro" time="0.001">
+  <testcase classname="adt.stack.StudentStackTest" name="testPushComErro" time="0">
     <error message="Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -209,7 +209,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.stack.StudentStackTest" name="testPopComErro" time="0.001">
+  <testcase classname="adt.stack.StudentStackTest" name="testPopComErro" time="0">
     <error message="Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -247,7 +247,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.stack.StudentStackTest" name="testIsFull" time="0.005">
+  <testcase classname="adt.stack.StudentStackTest" name="testIsFull" time="0.001">
     <error message="Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -285,7 +285,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.stack.StudentStackTest" name="testIsEmpty" time="0.008">
+  <testcase classname="adt.stack.StudentStackTest" name="testIsEmpty" time="0">
     <error message="Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.stack.Stack.push(Object)&quot; because &quot;this.stack1&quot; is null
 	at adt.stack.StudentStackTest.setUp(StudentStackTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

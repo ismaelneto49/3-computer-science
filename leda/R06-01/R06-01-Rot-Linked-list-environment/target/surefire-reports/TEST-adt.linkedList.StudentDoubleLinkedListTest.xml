@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="adt.linkedList.StudentDoubleLinkedListTest" time="0.002" errors="9" skipped="0">
+<testsuite tests="9" failures="0" name="adt.linkedList.StudentDoubleLinkedListTest" time="0.004" errors="9" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.4+8-Ubuntu-120.04"/>
@@ -95,7 +95,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testInsertFirst" time="0">
+  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testInsertFirst" time="0.001">
     <error message="Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null
 	at adt.linkedList.StudentDoubleLinkedListTest.setUp(StudentDoubleLinkedListTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -171,7 +171,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testToArray" time="0">
+  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testToArray" time="0.001">
     <error message="Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null
 	at adt.linkedList.StudentDoubleLinkedListTest.setUp(StudentDoubleLinkedListTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -209,7 +209,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testSize" time="0.001">
+  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testSize" time="0">
     <error message="Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null
 	at adt.linkedList.StudentDoubleLinkedListTest.setUp(StudentDoubleLinkedListTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -285,7 +285,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testIsEmpty" time="0.001">
+  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testIsEmpty" time="0">
     <error message="Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null
 	at adt.linkedList.StudentDoubleLinkedListTest.setUp(StudentDoubleLinkedListTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -323,7 +323,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testRemove" time="0">
+  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testRemove" time="0.001">
     <error message="Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null
 	at adt.linkedList.StudentDoubleLinkedListTest.setUp(StudentDoubleLinkedListTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -361,7 +361,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
   </testcase>
-  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testSearch" time="0">
+  <testcase classname="adt.linkedList.StudentDoubleLinkedListTest" name="testSearch" time="0.001">
     <error message="Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;adt.linkedList.LinkedList.insert(Object)&quot; because &quot;this.lista1&quot; is null
 	at adt.linkedList.StudentDoubleLinkedListTest.setUp(StudentDoubleLinkedListTest.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

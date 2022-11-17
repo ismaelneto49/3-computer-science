@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: adt.queue.StudentQueueTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.195 sec <<< FAILURE!
-testEnqueue(adt.queue.StudentQueueTest)  Time elapsed: 0.017 sec  <<< ERROR!
+Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.122 sec <<< FAILURE!
+testEnqueue(adt.queue.StudentQueueTest)  Time elapsed: 0.022 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" because "this.queue1" is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -39,7 +39,7 @@ java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" 
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testHead(adt.queue.StudentQueueTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testHead(adt.queue.StudentQueueTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" because "this.queue1" is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -113,7 +113,7 @@ java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" 
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testDequeue(adt.queue.StudentQueueTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testDequeue(adt.queue.StudentQueueTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" because "this.queue1" is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -150,7 +150,7 @@ java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" 
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testIsFull(adt.queue.StudentQueueTest)  Time elapsed: 0.003 sec  <<< ERROR!
+testIsFull(adt.queue.StudentQueueTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" because "this.queue1" is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -187,7 +187,7 @@ java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" 
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testIsEmpty(adt.queue.StudentQueueTest)  Time elapsed: 0.006 sec  <<< ERROR!
+testIsEmpty(adt.queue.StudentQueueTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" because "this.queue1" is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -224,7 +224,7 @@ java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" 
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testEnqueueComErro(adt.queue.StudentQueueTest)  Time elapsed: 0 sec  <<< ERROR!
+testEnqueueComErro(adt.queue.StudentQueueTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "adt.queue.Queue.enqueue(Object)" because "this.queue1" is null
 	at adt.queue.StudentQueueTest.setUp(StudentQueueTest.java:23)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

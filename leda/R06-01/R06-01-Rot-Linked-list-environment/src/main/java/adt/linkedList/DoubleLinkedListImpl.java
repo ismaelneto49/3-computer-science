@@ -4,36 +4,53 @@ public class DoubleLinkedListImpl<T> extends SingleLinkedListImpl<T> implements 
 
     protected DoubleLinkedListNode<T> last;
 
+    public DoubleLinkedListImpl() {
+        this.last = new DoubleLinkedListNode<T>();
+        this.last.setPrevious(new DoubleLinkedListNode<T>());
+        this.last.previous.next = this.last;
+    }
+
+    @Override
+    public void insert(T element) {
+        super.insert(element);
+        this.last.previous = new DoubleLinkedListNode<T>(element, this.last, this.last.previous);
+    }
+
+    @Override
+    public void remove(T element) {
+        super.remove(element);
+        DoubleLinkedListNode<T> temp = this.last;
+        while (!temp.previous.isNIL()) {
+            if (temp.previous.data.equals(element)) {
+                temp.setPrevious(temp.previous.previous);
+                break;
+            }
+            temp = temp.previous;
+        }
+    }
+
     @Override
     public void insertFirst(T element) {
-        DoubleLinkedListNode<T> previous = (DoubleLinkedListNode<T>) this.head;
-        DoubleLinkedListNode<T> next = (DoubleLinkedListNode<T>) this.head.next;
-        DoubleLinkedListNode<T> node = new DoubleLinkedListNode<T>(element, next, previous);
+        SingleLinkedListNode<T> node = new SingleLinkedListNode<T>(element, this.head.next);
+        this.head.next = node;
 
-        this.head.setNext(node);
-        if (!isEmpty()) {
-            next.setPrevious(node);
+        DoubleLinkedListNode<T> temp = this.last;
+        while (!temp.previous.isNIL()) {
+            temp = temp.previous;
         }
+        DoubleLinkedListNode<T> doubleNode = new DoubleLinkedListNode<T>(element, temp, temp.previous);
+        temp.previous.next = doubleNode;
+        temp.previous = doubleNode;
     }
 
     @Override
     public void removeFirst() {
-        if (!isEmpty()) {
-            DoubleLinkedListNode<T> node = (DoubleLinkedListNode<T>) this.head.next;
-            DoubleLinkedListNode<T> previous = node.previous;
-            DoubleLinkedListNode<T> next = (DoubleLinkedListNode<T>) node.next;
-
-            previous.next = next;
-            if (next != null) {
-                next.previous = previous;
-            }
-        }
+        this.remove(this.head.next.data);
     }
 
     @Override
     public void removeLast() {
-        DoubleLinkedListNode<T> nil = new DoubleLinkedListNode<T>();
-        this.last.previous.next = nil;
+        this.remove(this.last.previous.data);
     }
 
     public DoubleLinkedListNode<T> getLast() {

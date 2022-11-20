@@ -6,7 +6,6 @@ public class RecursiveDoubleLinkedListImpl<T> extends
 	protected RecursiveDoubleLinkedListImpl<T> previous;
 
 	public RecursiveDoubleLinkedListImpl() {
-
 	}
 
 	@Override

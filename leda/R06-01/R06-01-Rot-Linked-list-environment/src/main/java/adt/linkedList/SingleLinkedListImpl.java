@@ -5,20 +5,17 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 	protected SingleLinkedListNode<T> head;
 
 	public SingleLinkedListImpl() {
-		SingleLinkedListNode nil = new SingleLinkedListNode<>();
+		SingleLinkedListNode<T> nil = new SingleLinkedListNode<T>();
 		this.head = new SingleLinkedListNode<T>(null, nil);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return this.head.next.isNIL();
+		return this.size() == 0;
 	}
 
 	@Override
 	public int size() {
-		if (this.isEmpty()) {
-			return 0;
-		}
 		int size = 0;
 		SingleLinkedListNode<T> temp = this.head;
 		while (!temp.next.isNIL()) {

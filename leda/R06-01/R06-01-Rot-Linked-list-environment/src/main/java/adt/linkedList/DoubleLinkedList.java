@@ -10,7 +10,7 @@ public interface DoubleLinkedList<T> extends LinkedList<T> {
 	/**
 	 * Inserts a new element in the first position (head) of the list. The
 	 * "head" reference must be updated.
-	 * 
+	 * Impl
 	 * @param element
 	 */
 	public void insertFirst(T element);

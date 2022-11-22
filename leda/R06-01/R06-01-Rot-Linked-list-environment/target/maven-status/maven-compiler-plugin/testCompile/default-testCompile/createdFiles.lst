@@ -1,4 +1,4 @@
-adt/stack/StudentStackTest.class
-adt/linkedList/StudentLinkedListTest.class
-adt/queue/StudentQueueTest.class
-adt/linkedList/StudentDoubleLinkedListTest.class
+adt\stack\StudentStackTest.class
+adt\linkedList\StudentLinkedListTest.class
+adt\queue\StudentQueueTest.class
+adt\linkedList\StudentDoubleLinkedListTest.class

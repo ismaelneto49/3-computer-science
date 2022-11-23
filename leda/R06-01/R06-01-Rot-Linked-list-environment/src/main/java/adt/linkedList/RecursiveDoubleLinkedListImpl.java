@@ -34,8 +34,8 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
 
     @Override
     public void remove(T element) {
-        if (!this.isEmpty()) {
-            RecursiveDoubleLinkedListImpl<T> temp = this.previous;
+        RecursiveDoubleLinkedListImpl<T> temp = this.previous;
+        if (temp != null) {
             if (temp.data.equals(element)) {
                 this.previous = temp.previous;
                 temp.previous.next = this;
@@ -57,7 +57,7 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
     @Override
     public void removeFirst() {
         if (this.previous == null) {
-            this.remove(this.data);
+            ((RecursiveDoubleLinkedListImpl) this.next).previous = null;
         } else {
             this.previous.removeFirst();
         }
@@ -65,8 +65,25 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
 
     @Override
     public void removeLast() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Not implemented yet!");
+        if (!this.isEmpty()) {
+            this.previous = this.previous.previous;
+        }
+        if (this.previous != null) {
+            this.previous.next = this;
+        }
+    }
+
+    @Override
+    public T search(T element) {
+        RecursiveDoubleLinkedListImpl<T> temp = this;
+        if (temp.isEmpty()) {
+            return null;
+        }
+        if (temp.previous.data.equals(element)) {
+            return temp.previous.data;
+        }
+        temp = temp.previous;
+        return temp.search(element);
     }
 
     @Override

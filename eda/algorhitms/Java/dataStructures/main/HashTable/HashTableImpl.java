@@ -34,8 +34,8 @@ public class HashTableImpl<T extends Comparable<T>> implements HashTable<T> {
         int keyHash = this.hash(key);
         List<Node<T>> list = this.table[keyHash];
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getKey() == key) {
-                return list.get(i).getValue();
+            if (list.get(i).key == key) {
+                return list.get(i).value;
             }
         }
         return null;
@@ -96,7 +96,7 @@ public class HashTableImpl<T extends Comparable<T>> implements HashTable<T> {
     }
 
     private boolean isUpdate(Node<T> node) {
-        int keyHash = this.hash(node.getKey());
+        int keyHash = this.hash(node.key);
         List<Node<T>> list = this.table[keyHash];
         for (Node<T> element : list) {
             if (element.equals(node)) {
@@ -106,21 +106,13 @@ public class HashTableImpl<T extends Comparable<T>> implements HashTable<T> {
         return false;
     }
 
-    class Node<T extends Comparable<T>> {
+    private class Node<T extends Comparable<T>> {
         private int key;
         private T value;
 
         Node(int key, T value) {
             this.key = key;
             this.value = value;
-        }
-
-        int getKey() {
-            return this.key;
-        }
-
-        T getValue() {
-            return this.value;
         }
 
         @Override

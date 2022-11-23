@@ -18,7 +18,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 	public int size() {
 		int size = 0;
 		SingleLinkedListNode<T> temp = this.head;
-		while (!temp.next.isNIL()) {
+		while (temp.next != null && !temp.next.isNIL()) {
 			temp = temp.next;
 			size++;
 		}
@@ -64,6 +64,9 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 
 	@Override
 	public T[] toArray() {
+		if (this.isEmpty()) {
+			return (T[]) new Comparable[0];
+		}
 		T[] array = (T[]) new Comparable[this.size()];
 		SingleLinkedListNode<T> temp = this.head;
 		int count = 0;

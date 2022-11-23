@@ -13,13 +13,13 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
     @Override
     public boolean isEmpty() {
-        return this.next == null;
+        return this.size() == 0;
     }
 
     @Override
     public int size() {
         RecursiveSingleLinkedListImpl<T> temp = this;
-        if (temp.isEmpty()) {
+        if (temp.next == null) {
             return 0;
         }
         temp = this.next;

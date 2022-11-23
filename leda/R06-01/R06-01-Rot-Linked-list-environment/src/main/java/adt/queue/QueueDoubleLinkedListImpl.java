@@ -38,6 +38,9 @@ public class QueueDoubleLinkedListImpl<T> implements Queue<T> {
 
     @Override
     public T head() {
+        if (this.isEmpty()) {
+            return null;
+        }
         return this.list.getHead().getNext().getData();
     }
 

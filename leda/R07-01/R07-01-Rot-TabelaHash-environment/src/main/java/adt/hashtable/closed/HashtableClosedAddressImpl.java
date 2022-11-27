@@ -1,9 +1,6 @@
 package adt.hashtable.closed;
 
-import adt.hashtable.hashfunction.HashFunction;
-import adt.hashtable.hashfunction.HashFunctionClosedAddressMethod;
-import adt.hashtable.hashfunction.HashFunctionDivisionMethod;
-import adt.hashtable.hashfunction.HashFunctionFactory;
+import adt.hashtable.hashfunction.*;
 import adt.hashtable.open.HashtableElement;
 import util.Util;
 
@@ -65,7 +62,7 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 
     @Override
     public void insert(T element) {
-        int keyHash = ((HashFunctionDivisionMethod) this.hashFunction).hash(element);
+        int keyHash = ((HashFunctionClosedAddress) this.hashFunction).hash(element);
         if (this.table[keyHash] == null) {
             this.table[keyHash] = new LinkedList<>();
         } else if (((List<HashtableElement>) this.table[keyHash]).size() > 0) {
@@ -88,7 +85,7 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 
     @Override
     public void remove(T element) {
-        int keyHash = ((HashFunctionDivisionMethod) this.hashFunction).hash(element);
+        int keyHash = ((HashFunctionClosedAddress) this.hashFunction).hash(element);
         List<HashtableElement> list = ((List<HashtableElement>) this.table[keyHash]);
         if (list != null) {
             for (int i = 0; i < list.size(); i++) {
@@ -102,7 +99,7 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 
     @Override
     public T search(T element) {
-        int keyHash = ((HashFunctionDivisionMethod) this.hashFunction).hash(element);
+        int keyHash = ((HashFunctionClosedAddress) this.hashFunction).hash(element);
         List<HashtableElement> list = ((List<HashtableElement>) this.table[keyHash]);
         if (list != null) {
             for (int i = 0; i < list.size(); i++) {
@@ -116,8 +113,17 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 
     @Override
     public int indexOf(T element) {
-        int keyHash = ((HashFunctionDivisionMethod) this.hashFunction).hash(element);
-        return this.search(element) != null ? keyHash : -1;
+        for (int i = 0; i < this.table.length; i++) {
+            List<HashtableElement> list = ((List<HashtableElement>) this.table[i]);
+            if (list != null) {
+                for (int j = 0; j < list.size(); j++) {
+                    if (list.get(j).equals(element)) {
+                        return i;
+                    }
+                }
+            }
+        }
+        return -1;
     }
 
 }

@@ -37,18 +37,17 @@ public class HashtableOpenAddressLinearProbingImpl<T extends Storable> extends A
                 if (this.table[keyHash] != null) {
                     if (this.table[keyHash].equals(element)) {
                         this.table[keyHash] = this.deletedElement;
+                        this.elements--;
                         break;
                     }
                 }
             }
-            this.elements--;
         }
     }
 
     @Override
     public T search(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return this.indexOf(element) == -1 ? null : element;
     }
 
     @Override

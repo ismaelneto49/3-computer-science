@@ -62,5 +62,4 @@ public class HashtableOpenAddressLinearProbingImpl<T extends Storable> extends A
         }
         return -1;
     }
-
 }

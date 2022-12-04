@@ -1,6 +1,6 @@
 package adt.bst;
 
-import adt.bt.BTNode;
+import java.util.ArrayList;
 
 public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
@@ -21,20 +21,30 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
     @Override
     public int height() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return height(this.root);
     }
+
+    private int height(BSTNode<T> node) {
+        if (node.isEmpty()) {
+            return -1;
+        }
+        return 1 + Math.max(height((BSTNode<T>) node.getLeft()), height((BSTNode<T>) node.getRight()));
+    }
+
 
     @Override
     public BSTNode<T> search(T element) {
         if (this.isEmpty()) {
-            return null;
+            return new BSTNode<>();
         }
         return this.search(element, this.root);
     }
 
     private BSTNode<T> search(T element, BSTNode<T> node) {
-        Integer comparison = node.getData().compareTo(element);
+        if (node.isEmpty()) {
+            return new BSTNode<>();
+        }
+        int comparison = node.getData().compareTo(element);
         boolean foundElement = comparison == 0;
         boolean elementIsGreater = comparison < 0;
 
@@ -58,6 +68,8 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
             this.root.setData(element);
             this.root.setLeft(new BSTNode<>());
             this.root.setRight(new BSTNode<>());
+            this.root.getLeft().setParent(this.root);
+            this.root.getRight().setParent(this.root);
         } else {
             this.insert(element, this.root);
         }
@@ -66,25 +78,18 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
     private void insert(T element, BSTNode<T> node) {
         if (node.isEmpty()) {
             node.setData(element);
-            node.setLeft(new BSTNode.Builder<T>()
-                    .parent(this.root)
-                    .build());
-            node.setRight(new BSTNode.Builder<T>()
-                    .parent(this.root)
-                    .build());
+            node.setLeft(new BSTNode<>());
+            node.setRight(new BSTNode<>());
+            node.getLeft().setParent(node);
+            node.getRight().setParent(node);
         } else {
-            Integer comparison = node.getData().compareTo(element);
+            int comparison = node.getData().compareTo(element);
             boolean elementIsGreater = comparison < 0;
 
             if (node.isLeaf()) {
-                BSTNode<T> newNode = new BSTNode.Builder<T>()
-                        .data(element)
-                        .left(new BSTNode<T>())
-                        .right(new BSTNode<T>())
-                        .parent(node)
-                        .build();
-                newNode.getRight().setParent(newNode);
+                BSTNode<T> newNode = new BSTNode.Builder<T>().data(element).left(new BSTNode<>()).right(new BSTNode<>()).parent(node).build();
                 newNode.getLeft().setParent(newNode);
+                newNode.getRight().setParent(newNode);
                 if (elementIsGreater) {
                     node.setRight(newNode);
                 } else {
@@ -127,47 +132,162 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
     @Override
     public BSTNode<T> sucessor(T element) {
         BSTNode<T> node = this.search(element);
-        if (!node.getRight().isEmpty()) {
-            while (!node.isLeaf() && !node.getLeft().isEmpty()) {
-                node = (BSTNode<T>) node.getLeft();
+        if (!node.isEmpty()) {
+            if (!node.getRight().isEmpty()) {
+                node = (BSTNode<T>) node.getRight();
+                while (!node.isLeaf() && !node.getLeft().isEmpty()) {
+                    node = (BSTNode<T>) node.getLeft();
+                }
+            } else {
+                while (node != null && node.getData().compareTo(element) <= 0) {
+                    node = (BSTNode<T>) node.getParent();
+                }
             }
-        } else {
-            boolean isNodeGreater = node.getData().compareTo(element) > 0;
-            while (!isNodeGreater && !(node.getParent() == null)) {
-                node = (BSTNode<T>) node.getParent();
-            }
+            return node;
         }
-        return node;
+        return null;
     }
 
     @Override
     public BSTNode<T> predecessor(T element) {
+        BSTNode<T> node = this.search(element);
+        if (!node.isEmpty()) {
+            if (!node.getLeft().isEmpty()) {
+                node = (BSTNode<T>) node.getLeft();
+                while (!node.isLeaf() && !node.getRight().isEmpty()) {
+                    node = (BSTNode<T>) node.getRight();
+                }
+            } else {
+                while (node != null && node.getData().compareTo(element) >= 0) {
+                    node = (BSTNode<T>) node.getParent();
+                }
+            }
+            return node;
+        }
         return null;
     }
 
     @Override
     public void remove(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Not implemented yet!");
+        BSTNode<T> node = this.search(element);
+        this.remove(node);
     }
+
+    private void remove(BSTNode<T> node) {
+        BSTNode<T> parent = (BSTNode<T>) node.getParent();
+        T element = node.getData();
+        if (node.isLeaf()) {
+            boolean isNodeRoot = node.getParent() == null;
+            if (isNodeRoot) {
+                this.root = new BSTNode<>();
+            } else {
+                boolean isParentGreater = parent.getData().compareTo(element) > 0;
+                if (isParentGreater) {
+                    parent.setLeft(new BSTNode<>());
+                } else {
+                    parent.setRight(new BSTNode<>());
+                }
+            }
+        } else if (this.hasOneChild(node)) {
+            boolean isParentGreater = parent.getData().compareTo(element) > 0;
+            if (this.hasOnlyLeft(node)) {
+                node.getLeft().setParent(parent);
+                if (isParentGreater) {
+                    parent.setLeft(node.getLeft());
+                } else {
+                    parent.setRight(node.getLeft());
+                }
+            } else if (this.hasOnlyRight(node)) {
+                node.getRight().setParent(parent);
+                if (isParentGreater) {
+                    parent.setLeft(node.getRight());
+                } else {
+                    parent.setRight(node.getRight());
+                }
+            }
+
+        } else {
+            BSTNode<T> sucessor = this.sucessor(node.getData());
+            node.setData(sucessor.getData());
+            this.remove(sucessor);
+        }
+    }
+
+    private boolean hasOneChild(BSTNode<T> node) {
+        return this.hasOnlyLeft(node) || this.hasOnlyRight(node);
+    }
+
+    private boolean hasOnlyLeft(BSTNode<T> node) {
+        boolean onlyLeftChild = node.getRight().isEmpty() && !node.getLeft().isEmpty();
+        return onlyLeftChild;
+    }
+
+    private boolean hasOnlyRight(BSTNode<T> node) {
+        boolean onlyRightChild = node.getLeft().isEmpty() && !node.getRight().isEmpty();
+        return onlyRightChild;
+    }
+
 
     @Override
     public T[] preOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Not implemented yet!");
+        if (this.isEmpty()) {
+            return (T[]) new Comparable[0];
+        }
+        ArrayList<T> list = new ArrayList<>();
+        list.add(this.root.getData());
+        this.preOrder(list, (BSTNode<T>) this.root.getLeft());
+        this.preOrder(list, (BSTNode<T>) this.root.getRight());
+        return list.toArray((T[]) new Comparable[0]);
+    }
+
+    private void preOrder(ArrayList<T> list, BSTNode<T> node) {
+        if (!node.isEmpty()) {
+            list.add(node.getData());
+            this.preOrder(list, (BSTNode<T>) node.getLeft());
+            this.preOrder(list, (BSTNode<T>) node.getRight());
+        }
     }
 
     @Override
     public T[] order() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Not implemented yet!");
+        if (this.isEmpty()) {
+            return (T[]) new Comparable[0];
+        }
+        ArrayList<T> list = new ArrayList<>();
+        this.order(list, (BSTNode<T>) this.root.getLeft());
+        list.add(this.root.getData());
+        this.order(list, (BSTNode<T>) this.root.getRight());
+        return list.toArray((T[]) new Comparable[0]);
+    }
+
+    private void order(ArrayList<T> list, BSTNode<T> node) {
+        if (!node.isEmpty()) {
+            this.order(list, (BSTNode<T>) node.getLeft());
+            list.add(node.getData());
+            this.order(list, (BSTNode<T>) node.getRight());
+        }
     }
 
     @Override
     public T[] postOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Not implemented yet!");
+        if (this.isEmpty()) {
+            return (T[]) new Comparable[0];
+        }
+        ArrayList<T> list = new ArrayList<>();
+        this.postOrder(list, (BSTNode<T>) this.root.getLeft());
+        this.postOrder(list, (BSTNode<T>) this.root.getRight());
+        list.add(this.root.getData());
+        return list.toArray((T[]) new Comparable[0]);
     }
+
+    private void postOrder(ArrayList<T> list, BSTNode<T> node) {
+        if (!node.isEmpty()) {
+            this.postOrder(list, (BSTNode<T>) node.getLeft());
+            this.postOrder(list, (BSTNode<T>) node.getRight());
+            list.add(node.getData());
+        }
+    }
+
 
     /**
      * This method is already implemented using recursion. You must understand

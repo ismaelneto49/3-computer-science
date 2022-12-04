@@ -177,7 +177,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
         BSTNode<T> parent = (BSTNode<T>) node.getParent();
         T element = node.getData();
         if (node.isLeaf()) {
-            boolean isNodeRoot = node.getParent() == null;
+            boolean isNodeRoot = parent == null;
             if (isNodeRoot) {
                 this.root = new BSTNode<>();
             } else {
@@ -189,20 +189,25 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
                 }
             }
         } else if (this.hasOneChild(node)) {
-            boolean isParentGreater = parent.getData().compareTo(element) > 0;
-            if (this.hasOnlyLeft(node)) {
-                node.getLeft().setParent(parent);
-                if (isParentGreater) {
-                    parent.setLeft(node.getLeft());
-                } else {
-                    parent.setRight(node.getLeft());
-                }
-            } else if (this.hasOnlyRight(node)) {
-                node.getRight().setParent(parent);
-                if (isParentGreater) {
-                    parent.setLeft(node.getRight());
-                } else {
-                    parent.setRight(node.getRight());
+            boolean isNodeRoot = parent == null;
+            if (isNodeRoot) {
+                this.root = new BSTNode<>();
+            } else {
+                boolean isParentGreater = parent.getData().compareTo(element) > 0;
+                if (this.hasOnlyLeft(node)) {
+                    node.getLeft().setParent(parent);
+                    if (isParentGreater) {
+                        parent.setLeft(node.getLeft());
+                    } else {
+                        parent.setRight(node.getLeft());
+                    }
+                } else if (this.hasOnlyRight(node)) {
+                    node.getRight().setParent(parent);
+                    if (isParentGreater) {
+                        parent.setLeft(node.getRight());
+                    } else {
+                        parent.setRight(node.getRight());
+                    }
                 }
             }
 

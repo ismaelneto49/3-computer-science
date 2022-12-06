@@ -64,7 +64,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
     @Override
     public void insert(T element) {
-        if (this.root.isEmpty()) {
+        if (this.isEmpty()) {
             this.root.setData(element);
             this.root.setLeft(new BSTNode<>());
             this.root.setRight(new BSTNode<>());
@@ -87,7 +87,12 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
             boolean elementIsGreater = comparison < 0;
 
             if (node.isLeaf()) {
-                BSTNode<T> newNode = new BSTNode.Builder<T>().data(element).left(new BSTNode<>()).right(new BSTNode<>()).parent(node).build();
+                BSTNode<T> newNode = new BSTNode.Builder<T>()
+                        .data(element)
+                        .left(new BSTNode<>())
+                        .right(new BSTNode<>())
+                        .parent(node)
+                        .build();
                 newNode.getLeft().setParent(newNode);
                 newNode.getRight().setParent(newNode);
                 if (elementIsGreater) {
@@ -139,9 +144,11 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
                     node = (BSTNode<T>) node.getLeft();
                 }
             } else {
-                while (node != null && node.getData().compareTo(element) <= 0) {
-                    node = (BSTNode<T>) node.getParent();
+                BSTNode<T> temp = (BSTNode<T>) node.getParent();
+                while (temp != null && temp.getData().compareTo(element) < 0) {
+                    temp = (BSTNode<T>) temp.getParent();
                 }
+                node = temp;
             }
             return node;
         }
@@ -158,9 +165,11 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
                     node = (BSTNode<T>) node.getRight();
                 }
             } else {
-                while (node != null && node.getData().compareTo(element) >= 0) {
-                    node = (BSTNode<T>) node.getParent();
+                BSTNode<T> temp = (BSTNode<T>) node.getParent();
+                while (temp != null && temp.getData().compareTo(element) > 0) {
+                    temp = (BSTNode<T>) temp.getParent();
                 }
+                node = temp;
             }
             return node;
         }
@@ -175,46 +184,58 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
     private void remove(BSTNode<T> node) {
         BSTNode<T> parent = (BSTNode<T>) node.getParent();
-        T element = node.getData();
+        boolean isNodeRoot = parent == null;
         if (node.isLeaf()) {
-            boolean isNodeRoot = parent == null;
             if (isNodeRoot) {
                 this.root = new BSTNode<>();
             } else {
-                boolean isParentGreater = parent.getData().compareTo(element) > 0;
-                if (isParentGreater) {
-                    parent.setLeft(new BSTNode<>());
+                boolean isNodeLeftChild = parent.getData().compareTo(node.getData()) > 0;
+                if (isNodeLeftChild) {
+                    parent.setLeft(new BSTNode.Builder<T>().parent(parent).build());
                 } else {
-                    parent.setRight(new BSTNode<>());
+                    parent.setRight(new BSTNode.Builder<T>().parent(parent).build());
                 }
             }
         } else if (this.hasOneChild(node)) {
-            boolean isNodeRoot = parent == null;
             if (isNodeRoot) {
-                this.root = new BSTNode<>();
-            } else {
-                boolean isParentGreater = parent.getData().compareTo(element) > 0;
                 if (this.hasOnlyLeft(node)) {
-                    node.getLeft().setParent(parent);
-                    if (isParentGreater) {
+                    this.root = (BSTNode<T>) node.getLeft();
+                    node.getLeft().setParent(null);
+                }
+                if (this.hasOnlyRight(node)) {
+                    this.root = (BSTNode<T>) node.getRight();
+                    node.getRight().setParent(null);
+                }
+            } else {
+                boolean isNodeLeftChild = parent.getData().compareTo(node.getData()) > 0;
+                if (isNodeLeftChild) {
+                    if (this.hasOnlyLeft(node)) {
                         parent.setLeft(node.getLeft());
-                    } else {
-                        parent.setRight(node.getLeft());
+                        node.getLeft().setParent(parent);
                     }
-                } else if (this.hasOnlyRight(node)) {
-                    node.getRight().setParent(parent);
-                    if (isParentGreater) {
+                    if (this.hasOnlyRight(node)) {
                         parent.setLeft(node.getRight());
-                    } else {
+                        node.getRight().setParent(parent);
+                    }
+                } else {
+                    if (this.hasOnlyLeft(node)) {
+                        parent.setRight(node.getLeft());
+                        node.getLeft().setParent(parent);
+                    }
+                    if (this.hasOnlyRight(node)) {
                         parent.setRight(node.getRight());
+                        node.getRight().setParent(parent);
                     }
                 }
             }
-
         } else {
-            BSTNode<T> sucessor = this.sucessor(node.getData());
-            node.setData(sucessor.getData());
-            this.remove(sucessor);
+            BSTNode<T> changeNode = this.sucessor(node.getData());
+            if (changeNode == null) {
+                changeNode = this.predecessor(node.getData());
+            }
+
+            node.setData(changeNode.getData());
+            this.remove(changeNode);
         }
     }
 
@@ -223,7 +244,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
     }
 
     private boolean hasOnlyLeft(BSTNode<T> node) {
-        boolean onlyLeftChild = node.getRight().isEmpty() && !node.getLeft().isEmpty();
+        boolean onlyLeftChild = !node.getLeft().isEmpty() && node.getRight().isEmpty();
         return onlyLeftChild;
     }
 

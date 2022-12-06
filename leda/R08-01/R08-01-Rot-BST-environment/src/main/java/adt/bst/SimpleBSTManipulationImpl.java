@@ -1,7 +1,5 @@
 package adt.bst;
 
-import adt.bt.BTNode;
-
 /**
  * - Esta eh a unica classe que pode ser modificada
  *

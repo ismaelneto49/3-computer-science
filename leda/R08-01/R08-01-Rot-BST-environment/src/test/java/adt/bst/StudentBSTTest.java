@@ -98,6 +98,7 @@ public class StudentBSTTest {
 
     @Test
     public void testSize() {
+        assertEquals(0, tree.size());
         fillTree(); // -40 -34 0 2 5 6 9 12 23 67 76 232
 
         int size = 12;
@@ -107,10 +108,19 @@ public class StudentBSTTest {
             tree.remove(tree.getRoot().getData());
             assertEquals(--size, tree.size());
         }
+        for (int i = 0; i < 5; i++) {
+            tree.insert(i);
+        }
+        assertEquals(5, tree.size());
     }
 
     @Test
     public void testHeight() {
+        assertEquals(-1, tree.height());
+        tree.insert(1);
+        assertEquals(0, tree.height());
+        tree.remove(1);
+        
         fillTree(); // -40 -34 0 2 5 6 9 12 23 67 76 232
 
         Integer[] preOrder = new Integer[]{6, -34, -40, 5, 2, 0, 23, 9, 12, 76, 67, 232};

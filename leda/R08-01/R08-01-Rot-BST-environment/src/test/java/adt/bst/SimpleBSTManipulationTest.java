@@ -10,7 +10,11 @@ public class SimpleBSTManipulationTest {
     private BSTImpl<Integer> sameTree1;
     private BSTImpl<Integer> sameTree2;
     private BSTImpl<Integer> notSameTree1;
-    private BSTImpl<Integer> emptyTree;
+
+    private BSTImpl<Integer> emptyTree1;
+
+    private BSTImpl<Integer> emptyTree2;
+
 
     private void fillTrees() {
         Integer[] numbers = {6, 23, -34, 5, 9, 2, 0, 76, 12, 67, 232, -40};
@@ -29,7 +33,8 @@ public class SimpleBSTManipulationTest {
         this.sameTree1 = new BSTImpl<>();
         this.sameTree2 = new BSTImpl<>();
         this.notSameTree1 = new BSTImpl<>();
-        this.emptyTree = new BSTImpl<>();
+        this.emptyTree1 = new BSTImpl<>();
+        this.emptyTree2 = new BSTImpl<>();
     }
 
     @Test
@@ -57,12 +62,27 @@ public class SimpleBSTManipulationTest {
     }
 
     @Test
+    public void testEqualsEmptyTrees() {
+        assertTrue(this.bstManipulation.equals(this.emptyTree1, this.emptyTree2));
+    }
+
+    @Test
+    public void testSimilarEmptyTrees() {
+        assertTrue(this.bstManipulation.isSimilar(this.emptyTree1, this.emptyTree2));
+    }
+
+    @Test
     public void testOrderStatistic() {
         this.fillTrees();
         Integer[] orderedNumbers = {-40, -34, 0, 2, 5, 6, 9, 12, 23, 67, 76, 232};
         for (int i = 1; i <= orderedNumbers.length; i++) {
             assertEquals(orderedNumbers[i-1], this.bstManipulation.orderStatistic(sameTree1, i));
         }
+    }
+
+    @Test
+    public void testOrderStatisticNonExistent() {
         assertNull(this.bstManipulation.orderStatistic(sameTree1, 13));
+        assertNull(this.bstManipulation.orderStatistic(sameTree1, 0));
     }
 }

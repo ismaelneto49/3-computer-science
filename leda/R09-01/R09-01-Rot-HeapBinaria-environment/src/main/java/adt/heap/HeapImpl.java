@@ -161,8 +161,8 @@ public class HeapImpl<T extends Comparable<T>> implements Heap<T> {
             return (T[]) new Comparable[0];
         }
         this.buildHeap(array);
-        T[] result = Arrays.copyOf(this.heap, this.heap.length);
-        T[] invertedResult = Arrays.copyOf(this.heap, this.heap.length);
+        T[] result = (T[]) new Comparable[this.heap.length];
+        T[] invertedResult = (T[]) new Comparable[this.heap.length];
         for (int i = this.size() - 1; i >= 0; i--) {
             result[i] = this.rootElement();
             invertedResult[this.heap.length - 1 - i] = this.rootElement();

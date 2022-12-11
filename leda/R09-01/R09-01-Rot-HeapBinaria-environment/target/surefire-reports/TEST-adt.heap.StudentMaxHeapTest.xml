@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="adt.bst.FloorCeilBSTTest" time="0.005" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="adt.heap.StudentMaxHeapTest" time="0.005" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.17+8-adhoc..jdk11u"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.17.8-hotspot\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Ismael\IdeaProjects\3-computer-science\leda\R08-01\R08-01-Rot-BST-environment"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Ismael\IdeaProjects\3-computer-science\leda\R09-01\R09-01-Rot-HeapBinaria-environment"/>
     <property name="java.vm.vendor" value="OpenLogic"/>
     <property name="java.vendor.url" value="https://openlogic.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Ismael\IdeaProjects\3-computer-science\leda\R08-01\R08-01-Rot-BST-environment"/>
+    <property name="user.dir" value="C:\Users\Ismael\IdeaProjects\3-computer-science\leda\R09-01\R09-01-Rot-HeapBinaria-environment"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="11.0.17+8-adhoc..jdk11u"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
@@ -65,10 +65,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="adt.bst.FloorCeilBSTTest" name="testFloorSmallestNumber" time="0.004"/>
-  <testcase classname="adt.bst.FloorCeilBSTTest" name="testCeilDifferentNumber" time="0"/>
-  <testcase classname="adt.bst.FloorCeilBSTTest" name="testCeilEqualNumber" time="0"/>
-  <testcase classname="adt.bst.FloorCeilBSTTest" name="testFloorDifferentNumber" time="0"/>
-  <testcase classname="adt.bst.FloorCeilBSTTest" name="testFloorEqualNumber" time="0.001"/>
-  <testcase classname="adt.bst.FloorCeilBSTTest" name="testCeilBiggestNumber" time="0"/>
+  <testcase classname="adt.heap.StudentMaxHeapTest" name="testBuild" time="0.004"/>
+  <testcase classname="adt.heap.StudentMaxHeapTest" name="testSort" time="0.001"/>
+  <testcase classname="adt.heap.StudentMaxHeapTest" name="testSortEmpty" time="0"/>
+  <testcase classname="adt.heap.StudentMaxHeapTest" name="testInsert" time="0"/>
+  <testcase classname="adt.heap.StudentMaxHeapTest" name="testRemove" time="0"/>
 </testsuite>

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: adt.bst.FloorCeilBSTTest
+Test set: adt.heap.StudentMaxHeapTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 sec

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-18T15:01:04.836-0300</date>
+  <logger>ISMAEL RAIMUNDO DA SILVA NETO</logger>
+  <level>FINE</level>
+  <message>File 121111104-ISMAEL RAIMUNDO DA SILVA NETO.zip was received. It was sent by ISMAEL RAIMUNDO DA SILVA NETO from IP 192.168.0.107 at 18-12-2022 15*01*03</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-18T17:34:16.608-0300</date>
+  <logger>ISMAEL RAIMUNDO DA SILVA NETO</logger>
+  <level>FINE</level>
+  <message>File 121111104-ISMAEL RAIMUNDO DA SILVA NETO.zip was received. It was sent by ISMAEL RAIMUNDO DA SILVA NETO from IP 192.168.0.107 at 18-12-2022 17*34*16</message>
+</record>

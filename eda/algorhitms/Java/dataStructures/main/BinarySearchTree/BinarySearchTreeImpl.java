@@ -15,8 +15,9 @@ public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySear
     public void insert(T element) {
         if (this.isEmpty()) {
             this.root = new Node<>(element, null);
+        } else {
+            this.insert(this.root, element);
         }
-        this.insert(this.root, element);
         this.size++;
     }
 

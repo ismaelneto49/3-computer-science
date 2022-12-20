@@ -1,5 +1,6 @@
 package BinarySearchTree;
 
+import java.awt.color.ICC_Profile;
 import java.util.ArrayList;
 
 public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySearchTree<T> {
@@ -70,21 +71,25 @@ public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySear
 
     @Override
     public boolean contains(T element) {
-        return this.contains(this.root, element);
+        return this.search(element) != null;
     }
 
-    private boolean contains(Node<T> current, T element) {
+    public Node<T> search(T element) {
+        return this.search(this.root, element);
+    }
+
+    private Node<T> search(Node<T> current, T element) {
         if (current.isNihil()) {
-            return false;
+            return null;
         }
         boolean foundElement = element.compareTo(current.value) == 0;
         boolean isElementSmaller = element.compareTo(current.value) < 0;
         if (foundElement) {
-            return true;
+            return current;
         } else if (isElementSmaller) {
-            return this.contains(current.left, element);
+            return this.search(current.left, element);
         } else {
-            return this.contains(current.right, element);
+            return this.search(current.right, element);
         }
     }
 
@@ -93,13 +98,13 @@ public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySear
         if (this.isEmpty()) {
             return null;
         } else {
-            return this.minimum(this.root);
+            return this.minimum(this.root).value;
         }
     }
 
-    private T minimum(Node<T> current) {
+    private Node<T> minimum(Node<T> current) {
         if (current.left.isNihil()) {
-            return current.value;
+            return current;
         }
         return this.minimum(current.left);
     }
@@ -109,15 +114,44 @@ public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySear
         if (this.isEmpty()) {
             return null;
         } else {
-            return this.maximum(this.root);
+            return this.maximum(this.root).value;
         }
     }
 
-    private T maximum(Node<T> current) {
+    private Node<T> maximum(Node<T> current) {
         if (current.right.isNihil()) {
-            return current.value;
+            return current;
         }
         return this.maximum(current.right);
+    }
+
+    @Override
+    public T successor(T element) {
+        if (this.isEmpty()) {
+            return null;
+        }
+        Node<T> node = this.search(element);
+        Node<T> successor = this.successor(node);
+        if (successor == null) {
+            Node<T> temp = node;
+            while (temp.parent != null && temp.parent.value.compareTo(node.value) < 0) {
+                temp = temp.parent;
+            }
+            successor = temp;
+        }
+        return successor.value;
+    }
+
+    private Node<T> successor(Node<T> current) {
+        if (current.hasRightChild()) {
+            return this.minimum(current.left);
+        }
+        return null;
+    }
+
+    @Override
+    public T predecessor(T element) {
+        return null;
     }
 
     @Override
@@ -201,6 +235,18 @@ public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySear
 
         private boolean isNihil() {
             return this.value == null;
+        }
+
+        private boolean isLeaf() {
+            return !this.hasLeftChild() && !this.hasRightChild();
+        }
+
+        private boolean hasLeftChild() {
+            return !this.left.isNihil();
+        }
+
+        private boolean hasRightChild() {
+            return !this.right.isNihil();
         }
 
         @Override

@@ -18,6 +18,10 @@ public interface BinarySearchTree<T extends Comparable<T>> {
 
     T maximum();
 
+    T successor(T element);
+
+    T predecessor(T element);
+
     T[] preOrder();
 
     T[] inOrder();

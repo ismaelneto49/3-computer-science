@@ -1,5 +1,7 @@
 package LinkedList;
 
+import List.LinkedList.LinkedList;
+import List.LinkedList.LinkedListImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

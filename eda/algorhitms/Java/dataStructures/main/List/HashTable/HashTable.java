@@ -1,4 +1,4 @@
-package HashTable;
+package List.HashTable;
 
 public interface HashTable<T> {
 

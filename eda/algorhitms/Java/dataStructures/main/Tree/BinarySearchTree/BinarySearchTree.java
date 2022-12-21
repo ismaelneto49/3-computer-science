@@ -1,4 +1,4 @@
-package BinarySearchTree;
+package Tree.BinarySearchTree;
 
 public interface BinarySearchTree<T extends Comparable<T>> {
 

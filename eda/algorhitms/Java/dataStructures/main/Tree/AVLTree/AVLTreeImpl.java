@@ -1,7 +1,7 @@
-package AVLTree;
+package Tree.AVLTree;
 
 
-import BinarySearchTree.BinarySearchTreeImpl;
+import Tree.BinarySearchTree.BinarySearchTreeImpl;
 
 public class AVLTreeImpl<T extends Comparable<T>> extends BinarySearchTreeImpl<T> implements AVLTree<T> {
 

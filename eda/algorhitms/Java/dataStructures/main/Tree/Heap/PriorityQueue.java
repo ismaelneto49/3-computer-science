@@ -1,4 +1,4 @@
-package Heap;
+package Tree.Heap;
 
 public class PriorityQueue<T extends Comparable<T>> implements Heap<T> {
 

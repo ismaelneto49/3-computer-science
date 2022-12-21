@@ -1,5 +1,7 @@
 package BinarySearchTree;
 
+import Tree.BinarySearchTree.BinarySearchTree;
+import Tree.BinarySearchTree.BinarySearchTreeImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

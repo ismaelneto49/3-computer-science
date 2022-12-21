@@ -1,7 +1,6 @@
-package Heap;
+package Tree.Heap;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class HeapImpl<Integer extends Comparable<Integer>> implements Heap<Integer> {
 

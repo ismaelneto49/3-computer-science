@@ -1,6 +1,5 @@
-package BinarySearchTree;
+package Tree.BinarySearchTree;
 
-import java.awt.color.ICC_Profile;
 import java.util.ArrayList;
 
 public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySearchTree<T> {

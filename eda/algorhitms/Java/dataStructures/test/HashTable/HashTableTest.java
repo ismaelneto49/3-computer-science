@@ -1,5 +1,7 @@
 package HashTable;
 
+import List.HashTable.HashTable;
+import List.HashTable.HashTableImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

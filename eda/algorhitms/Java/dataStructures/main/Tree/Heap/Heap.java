@@ -1,4 +1,4 @@
-package Heap;
+package Tree.Heap;
 
 public interface Heap<T extends Comparable<T>> {
 

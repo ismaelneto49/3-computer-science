@@ -1,4 +1,4 @@
-package LinkedList;
+package List.LinkedList;
 
 public interface LinkedList<T extends Comparable<T>> {
 

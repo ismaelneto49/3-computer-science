@@ -1,4 +1,4 @@
-package LinkedList;
+package List.LinkedList;
 
 import List.LinkedList.LinkedList;
 import List.LinkedList.LinkedListImpl;

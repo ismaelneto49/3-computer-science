@@ -1,4 +1,4 @@
-package HashTable;
+package List.HashTable;
 
 import List.HashTable.HashTable;
 import List.HashTable.HashTableImpl;

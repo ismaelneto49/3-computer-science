@@ -14,6 +14,9 @@ public class HeapImpl<Integer extends Comparable<Integer>> implements Heap<Integ
     }
 
     private void buildHeap() {
+        for (int i = parent(this.tail); i >= 0; i--) {
+            this.heapify(i);
+        }
     }
 
     @Override

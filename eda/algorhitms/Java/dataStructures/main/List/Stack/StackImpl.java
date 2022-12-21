@@ -6,48 +6,27 @@ public class StackImpl<T> {
     private T size;
 
     public void add(T element) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
 
     public void remove(int index) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
 
     public void remove(T element) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
 
     public T get() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    public T get(int index) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    public void set(int index, T element) {
-        // TODO Auto-generated method stub
-    }
-
-    public boolean contains(T element) {
-        // TODO Auto-generated method stub
-        return false;
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
 
     public int size() {
-        // TODO Auto-generated method stub
-        return 0;
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
 
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        return false;
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
-
 
 }

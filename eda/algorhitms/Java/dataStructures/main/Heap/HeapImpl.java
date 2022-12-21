@@ -43,6 +43,10 @@ public class HeapImpl<Integer extends Comparable<Integer>> implements Heap<Integ
     private void heapify(int i) {
         if (!this.isLeaf(i) && this.isValidIndex(i)) {
             int greatestElementIndex = this.getGreatestElementIndex(new int[]{i, this.left(i), this.right(i)});
+            if (greatestElementIndex != i) {
+                this.swap(i, greatestElementIndex);
+                heapify(greatestElementIndex);
+            }
         }
     }
 

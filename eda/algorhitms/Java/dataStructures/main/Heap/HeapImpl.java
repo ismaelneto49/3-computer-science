@@ -90,7 +90,7 @@ public class HeapImpl<Integer extends Comparable<Integer>> implements Heap<Integ
     }
 
     private boolean isLeaf(int index) {
-        return index >= this.parent(this.tail) && index <= this.tail;
+        return index > this.parent(this.tail) && index <= this.tail;
     }
 
     @Override
@@ -121,6 +121,6 @@ public class HeapImpl<Integer extends Comparable<Integer>> implements Heap<Integ
     }
 
     private boolean isValidIndex(int index) {
-        return index >= 0 && index < this.heap.length;
+        return index >= 0 && index <= this.tail;
     }
 }

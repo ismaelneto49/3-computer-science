@@ -1,78 +1,93 @@
 package List.LinkedList;
 
+import Tree.Heap.PriorityQueue;
+
 public class LinkedListImpl<T extends Comparable<T>> implements LinkedList<T> {
 
     private Node<T> start;
     private Node<T> end;
     private int size;
 
-    @Override
-    public void add(T element) {
-        Node<T> node = new Node<T>(element);
-        if (this.isEmpty()) {
-            this.start = node;
-        } else {
-            this.end.next = node;
-            node.previous = this.end;
-        }
-        this.end = node;
-        this.size++;
+    public LinkedListImpl() {
+        this.start = new Node<>();
+        this.end = new Node<>();
+
+        this.start.next = this.end;
+        this.end.previous = this.start;
+        this.size = 0;
     }
 
     @Override
-    public void remove(int index) {
+    public void insert(T element) {
         if (this.isEmpty()) {
-            return;
-        }
-        boolean isFirstElement = index == 0;
-        boolean isLastElement = index == this.size - 1;
-        if (isFirstElement) {
-            this.start = this.start.next;
-            this.start.previous = null;
-        } else if (isLastElement) {
-            this.end = this.end.previous;
-            this.end.next = null;
+            Node<T> newNode = new Node<>(element, this.start, this.end);
+            this.start.next = newNode;
+            this.end.previous = newNode;
         } else {
-            Node<T> temp = this.start;
-            int count = 0;
-            while (temp.next != null && count != index) {
-                temp = temp.next;
-                count++;
-            }
-            temp.previous.next = temp.next;
-            temp.next.previous = temp.previous;
+            this.insert(this.start, element);
         }
-        this.size--;
+        this.size++;
+    }
+
+    private void insert(Node<T> current, T element) {
+        if (current.next.isNihil()) {
+            Node<T> newNode = new Node<>(element, current, current.next);
+            current.next.previous = newNode;
+            current.next = newNode;
+        } else {
+            this.insert(current.next, element);
+        }
+    }
+
+    @Override
+    public T remove(int index) {
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
 
     @Override
     public T get(int index) {
+        if (this.isEmpty()) {
+            return null;
+        }
+        if (index >= this.size) {
+            return null;
+        }
         Node<T> temp = this.start;
         for (int i = 0; i < index; i++) {
             temp = temp.next;
+            if (temp.isNihil()) {
+                return null;
+            }
         }
-        return temp.value;
+        return temp.next.value;
     }
 
     @Override
     public void set(int index, T element) {
-        Node<T> temp = this.start;
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
-        }
-        temp.value = element;
+
     }
 
     @Override
     public boolean contains(T element) {
+        return this.indexOf(element) != -1;
+    }
+
+    @Override
+    public int indexOf(T element) {
+        if (this.isEmpty()) {
+            return -1;
+        }
+        int index = 0;
         Node<T> temp = this.start;
-        while (temp.next != null) {
-            if (temp.value.equals(element)) {
-                return true;
+        while (!temp.next.isNihil()) {
+            boolean foundElement = temp.next.value.compareTo(element) == 0;
+            if (foundElement) {
+                break;
             }
             temp = temp.next;
+            index++;
         }
-        return false;
+        return index;
     }
 
     @Override
@@ -82,22 +97,33 @@ public class LinkedListImpl<T extends Comparable<T>> implements LinkedList<T> {
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return this.size == 0;
     }
 
-    private class Node<T> {
+    private class Node<T extends Comparable<T>> {
         private T value;
         private Node<T> previous;
         private Node<T> next;
 
-        private Node(T value) {
+        Node(T value, Node<T> previous, Node<T> next) {
             this.value = value;
-        }
-
-        private Node(T value, Node<T> previous, Node<T> next) {
-            this(value);
             this.previous = previous;
             this.next = next;
+        }
+
+        Node() {
+            this.value = null;
+            this.previous = null;
+            this.next = null;
+        }
+
+        private boolean isNihil() {
+            return this.value == null;
+        }
+
+        @Override
+        public String toString() {
+            return this.isNihil() ? "nihil" : this.value.toString();
         }
     }
 }

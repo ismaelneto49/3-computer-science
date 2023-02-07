@@ -1,7 +1,5 @@
 package List.LinkedList;
 
-import Tree.Heap.PriorityQueue;
-
 public class LinkedListImpl<T extends Comparable<T>> implements LinkedList<T> {
 
     private Node<T> start;
@@ -64,7 +62,20 @@ public class LinkedListImpl<T extends Comparable<T>> implements LinkedList<T> {
 
     @Override
     public void set(int index, T element) {
-
+        if (this.isEmpty()) {
+            return;
+        }
+        if (index >= this.size) {
+            return;
+        }
+        Node<T> temp = this.start;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+            if (temp.isNihil()) {
+                return;
+            }
+        }
+        temp.next.value = element;
     }
 
     @Override
@@ -86,6 +97,9 @@ public class LinkedListImpl<T extends Comparable<T>> implements LinkedList<T> {
             }
             temp = temp.next;
             index++;
+        }
+        if (index == this.size) {
+            return -1;
         }
         return index;
     }
